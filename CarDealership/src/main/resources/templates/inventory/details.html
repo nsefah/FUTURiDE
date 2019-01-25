@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link href="../../../css/styles.css"
+              rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+        <title>Vehicle Details</title>
+    </head>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                </button>
+                <a class="navbar-brand" href="/home/home">FUTURiDE</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/home/home">HOME</a></li>
+                    <li><a href="/inventory/used">USED CARS</a></li>
+                    <li><a href="/inventory/new">NEW CARS</a></li>
+                    <li><a href="/home/specials">SPECIALS</a></li>
+                    <li><a href="/contact">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <body>
+        <div class="jumbotron jumbotron-fluid">
+
+            <video autoplay muted loop poster="https://dummyimage.com/900x400/000/fff">    
+                <source src="/videos/merc.mp4" data-src="/videos/bmw.mp4" type="video/mp4">
+
+            </video>
+
+            <div class="container text-white">
+
+                <h1 class="display-4">Currently Viewing: The [[${vehicle.year}]] [[${vehicle.makeId.make}]] [[${vehicle.modelId.model}]] </h1>
+                <p class="lead">The devil is in the details. Learn more about each of our fantastic rides.</p>
+                <hr class="my-4">
+                <p></p>
+
+
+            </div>
+            <!-- /.container -->
+        </div>
+
+        <!--        <h2>[[${vehicle.year}]] [[${vehicle.makeId.make}]] [[${vehicle.modelId.model}]]</h2>-->
+        <!--        
+                <div class="card border-dark bg-light" id="detailsCard" th:object="${vehicle}">
+                    <div>[[${vehicle.year}]] [[${vehicle.makeId.make}]] [[${vehicle.modelId.model}]]</div>
+                    <div class="fa fa-car" id="carImage"></div>
+                    <div>Body Style: [[${vehicle.bodyStyleId.bodystyle}]]</div>
+                    <div>Interior: [[${vehicle.interiorColorsId.interiorcolor}]]</div>
+                    <div>Sales Price: [[${vehicle.salesprice}]]</div>
+                    <div>Trans: [[${vehicle.transmissionId.transmission}]]</div>
+                    <div>Mileage: [[${vehicle.mileage}]]</div>
+                    <div>MSRP: [[${vehicle.MSRP}]]</div>
+                    <div>Color: [[${vehicle.exteriorColorId.exteriorcolor}]]</div>
+                    <div>Vin # [[${vehicle.vinnum}]]</div>
+                    <div>Description: [[${vehicle.description}]]</div>
+                </div>-->
+
+        <div class="card border-dark bg-light col-12" id="detailsCard" th:object="${vehicle}" style="color:#3A3D45" >
+            <div class="col-12 row">
+                <div class="col-4">    
+                    <div id="details">[[${vehicle.year}]] [[${vehicle.makeId.make}]] [[${vehicle.modelId.model}]]</div>
+
+                    <div><img th:src="${vehicle.imagepath}" width = "400" height="500"></div>
+                </div>
+                <div class="col-4">
+                    <div id="details">Body Style: [[${vehicle.bodyStyleId.bodystyle}]]</div>
+                    <div id="details">Interior: [[${vehicle.interiorColorsId.interiorcolor}]]</div>
+                    <div id="details">Sales Price: [[${vehicle.salesprice}]]</div>
+
+
+                    <div id="details">Trans: [[${vehicle.transmissionId.transmission}]]</div>
+                </div>
+                <div class="col-4">
+                    <div id="details">Mileage: [[${vehicle.mileage}]]</div>
+                    <div id="details">MSRP: [[${vehicle.MSRP}]]</div>
+                    <div id="details">Color: [[${vehicle.exteriorColorId.exteriorcolor}]]</div>
+                    <div id="details">Vin # [[${vehicle.vinnum}]]</div>
+                    <div id="details">Description: [[${vehicle.description}]]</div>
+                </div>
+                
+            </div>
+<!--            <a type="btn btn-primary" href="/contact">Contact Us</a>-->
+        </div>
+        <div class="banner" href="/contact" style="padding:15px; text-align:center; background-color: #3A3D45; color: #fff">
+            <div class="banner-content" href="/contact">
+                <h1 href="/contact">Contact Us</h1>
+            </div>
+        </div>
+
+        <footer class="container-fluid text-center">
+
+            <p>Copyright FUTURide/Neil Sefah</a></p>
+        </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="../../js/jquery-2.2.4.js"></script>
+        <script src="../../js/bootstrap.js"></script>
+        <script src="../../js/vehicle.js"></script>
+    </body>
+</html>

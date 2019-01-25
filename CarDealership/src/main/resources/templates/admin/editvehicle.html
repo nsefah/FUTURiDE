@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="../../../css/styles.css"
+          rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Edit Vehicle</title>
+    </head>
+     <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                </button>
+                <a class="navbar-brand" href="/home/home">FUTURiDE</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/home/home">HOME</a></li>
+                    <li><a href="/inventory/used">USED CARS</a></li>
+                    <li><a href="/inventory/new">NEW CARS</a></li>
+                    <li><a href="/home/specials">SPECIALS</a></li>
+                    <li><a href="/contact">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <body>
+  
+        <div class="banner" style="padding:15px; text-align:center; background-color: #3A3D45; color: #fff">
+            <div class="banner-content">
+                <h1>Edit Vehicle</h1>
+            </div>
+        </div>
+<!--        <div class="col-12 m-1 text-center"  th:if="${!errors.isEmpty()}">
+            <p class="alert alert-danger" th:each="error : ${errors}" th:text="${error.message}">Error message</p>
+        </div>-->
+        
+        <form action="/admin/editvehicle" method="POST" th:object="${vehicle}" enctype="multipart/form-data">
+            
+            <input type="hidden" th:value="${vehicle.id}" name="id" id="id">
+                
+            <div class="form-group">
+                <label class="col-4" for="make">Make</label>
+                    <select class="col-4" name="makeId" id="selectMake">
+                        <option th:value="${vehicle.makeId.id}" th:text="${vehicle.makeId.make}"></option>
+                        <option th:each="make : ${makes}"
+                                th:value="${make.id}"
+                                th:text="${make.make}">Make</option>
+                    </select>
+            </div>
+            <div class="form-group">
+                <label class="col-4" for="model">Model</label>
+                <select class="col-4" name="modelId" id="selectMake">
+                    <option th:value="${vehicle.modelId.id}" th:text="${vehicle.modelId.model}"></option>
+                    <option th:each="model : ${models}"
+                            th:value="${model.id}"
+                            th:text="${model.model}">Model</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="col-4" for="type">Type</label>
+                <select class="col-4" name="typeId">
+                    <option th:value="${vehicle.typeId.id}" th:text="${vehicle.typeId.type}"></option>
+                    <option th:each="type : ${types}"
+                            th:value="${type.id}"
+                            th:text="${type.type}">Type</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="col-4" for="bodyStyle">Body Style</label>
+                <select class="col-4" name="bodyStyleId" >
+                    <option th:value="${vehicle.bodyStyleId.id}" th:text="${vehicle.bodyStyleId.bodystyle}"></option>
+                    <option th:each="bodyStyle : ${styles}"
+                            th:value="${bodyStyle.id}"
+                            th:text="${bodyStyle.bodystyle}">Body Style</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="col-4" for="year">Year</label>
+                <input type="text" name="year" th:value="${vehicle.year}">
+            </div>
+            <div class="form-group">
+                <label class="col-4" for="transmission">Transmission</label>
+                <select class="col-4" th:field="*{transmissionId}">
+                    <option value="">Transmission</option>
+                    <option th:each="transmission : ${trans}"
+                            th:value="${transmission.id}"
+                            th:text="${transmission.transmission}"
+                            >Transmission</option>
+                </select>
+            </div>
+           
+            </div>
+            <div class="form-group">
+                <label class="col-4" for="exteriorColor">Color</label>
+                <select class="col-4" th:field="*{exteriorColorId}">
+                    <option value="">Select exterior color</option>
+                    <option th:each="exteriorColor : ${excos}"
+                            th:value="${exteriorColor.id}"
+                            th:text="${exteriorColor.exteriorcolor}"
+                            th.selected="${exteriorColor.id == vehicle.exteriorColorId.id">Color</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="col-4" for="interiorColor">Interior Color</label>
+                <select class="col-4" th:field="*{interiorColorsId}">
+                    <option value="">Select interior color</option>
+                    <option th:each="interiorColor : ${incos}"
+                            th:value="${interiorColor.id}"
+                            th:text="${interiorColor.interiorcolor}"
+                            th:selected="${interiorColor.id == vehicle.interiorColorsId.id}">Interior Color</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="col-4" for="mileage">Mileage</label>
+                <input type="text" name="mileage" th:value="${vehicle.mileage}">
+            </div>
+            <div class="form-group">
+                <label class="col-4" for="vinnum">Vin #</label>
+                <input type="text" name="vinnum" th:value="${vehicle.vinnum}">
+            </div>
+            <div class="form-group">
+                <label class="col-4" for="MSRP">MSRP</label>
+                <input type="text" name="MSRP" th:value="${vehicle.MSRP}">
+            </div>
+            <div class="form-group">
+                <label class="col-4" for="salesprice">Sale Price</label>
+                <input type="text" name="salesprice" th:value="${vehicle.salesprice}">
+            </div>
+        
+            <label for="description">Description</label>
+            <textarea type="text" id="description" name="description" class="form-control" 
+                     th:field="*{description}" >[[${vehicle.description}]]</textarea>
+                  
+            <div style="padding-top: 8px; float:left;" >
+            
+            <label for="picture">Picture<br/></label>
+                <input  type="file" name="picture" accept="image/png, image/jpg, image/jpeg">
+                <input type="submit" class="btn btn-primary"><br /><br />
+            </div></br>
+            
+            <div class="form-group">
+                <input type="checkbox" name="featured">
+                <label class="col-2" for="featured">Feature this vehicle?</label> 
+            </div>
+            
+<!--            <a type="btn" class="btn btn-danger col-2" id="delete" href="#"
+               th:href="@{/deleteVehicle(id=${vehicle.id})}">Delete</a>-->
+            
+        </form>    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+        <script src="../../js/bootstrap.js"></script>
+        <script src="/js/vehicle.js"></script>
+    </body>
+    
+</html>

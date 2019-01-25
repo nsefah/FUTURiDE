@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+     <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link href="../../../css/styles.css" 
+              rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <!--//header for pages -->
+    <title>Specials</title>
+    </head>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                </button>
+                <a class="navbar-brand" href="#">FUTURiDE</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/home/home">HOME</a></li>
+                    <li><a href="/inventory/used">USED CARS</a></li>
+                    <li><a href="/inventory/new">NEW CARS</a></li>
+                    <li><a href="/home/specials">SPECIALS</a></li>
+                    <li><a href="/contact">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <body>
+      <div class="jumbotron jumbotron-fluid">
+
+            <video autoplay muted loop poster="https://dummyimage.com/900x400/000/fff">    
+                <source src="/videos/mini.mp4" data-src="/videos/mini.mp4" type="video/mp4">
+
+            </video>
+
+            <div class="container text-white">
+
+                <h1 class="display-4">Every day is a special day at FUTURiDE.</h1>
+                <p class="lead">Why not take a look at some of our deals?</p>
+                <hr class="my-4">
+                <p></p>
+                
+
+            </div>
+            <!-- /.container -->
+        </div>
+        
+        <div class="row m-4 border border-dark" th:each="special : ${specials}" style="background-color: #3A3D45; color:#fff; padding: 10px">
+      <div class="col-1 m-3" id="dollarSign">
+          <i class="fa fa-usd fa-5x"></i>
+      </div>
+      <div class="col-8">
+          <h4 th:text="${special.title}"></h4>
+          <div class="row m-4" th:text="${special.description}">
+          </div>
+      </div>
+        
+    </div>
+        <footer class="container-fluid text-center">
+
+            <p>Copyright FUTURide/Neil Sefah</a></p>
+        </footer>
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="../../../css/styles.css" 
+          rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Contact Us</title>
+  </head>
+  <body>
+    <div class="row m-1 border border-dark">
+        <i class = "fa fa-car" id="carIcon"> </i>
+          <a class="btn btn-default" href="index.html">Home</a>
+          &nbsp;|&nbsp;
+          <a class="btn btn-default" href="newInventory.html">New Inventory</a>
+          &nbsp;|&nbsp;
+          <a class="btn btn-default" href="usedInventory.html">Used Inventory</a>
+          &nbsp;|&nbsp;
+          <a class="btn btn-default" href="specials">Specials</a>
+          &nbsp;|&nbsp;
+         <a class="btn btn-default" href="contact">Contact</a>
+      </div>
+
+    <h1>Add Special</h1>
+    <div class = "col-5 m-3" id = "form" style="float:left;">
+      <form action="admin/addspecial" method="POST">
+        <label id="title" align="right" for="title">Title<br /></label>
+        <input type="text" id="title" name="title" class="form-control"/><br /><br />
+        <label id="description" for="description">Description<br /></label>
+        <input type="text" id="description" name="description" class="form-control"/><br /><br />
+          <button type="submit" class="btn btn-primary">Submit</button><br /><br />
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
+
